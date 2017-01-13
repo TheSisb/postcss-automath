@@ -50,7 +50,8 @@ module.exports = postcss.plugin('postcss-math', function () {
                 return;
             }
 
-            if (!node[nodeProp] // no value
+            if (node.prop === 'border-radius'
+             || !node[nodeProp] // no value
              || !node[nodeProp].match(/\d/) // no numbers
              || !node[nodeProp].match(/\*|\+|\/|-|%/)   // no math
              || node[nodeProp].match(/calc\(/)   // exclude in-browser calc() statements
